@@ -1,17 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react"
+import { createRoot } from "react-dom/client"
 
-import App from './App'
+import App from "./App"
+import { CartProvider } from "./features/cart/context/CartContext"
+import "./styles/index.css"
 
-import './styles/index.css'
+const domNode = document.getElementById("root")
+const root = createRoot(domNode)
 
-const rootView = document.getElementById('root')
-
-if (rootView) {
-  ReactDOM.render(
-    <React.StrictMode>
+root.render(
+  <React.StrictMode>
+    <CartProvider>
       <App />
-    </React.StrictMode>,
-    rootView
-  )
-}
+    </CartProvider>
+  </React.StrictMode>
+)
